@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">JoyDev Music Player</string>
+    <string name="login_fragment_title">Вход</string>
+    <string name="loginInputField_hint">Логин</string>
+    <string name="passwordInputField_hint">Пароль</string>
+    <string name="login_registration_hyperlink">Зарегистрироваться</string>
+    <string name="login_inputButton">Войти</string>
 </resources>
