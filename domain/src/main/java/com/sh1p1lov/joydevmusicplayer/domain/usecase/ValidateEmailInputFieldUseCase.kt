@@ -1,11 +1,12 @@
 package com.sh1p1lov.joydevmusicplayer.domain.usecase
 
 import com.sh1p1lov.joydevmusicplayer.domain.validator.InputFieldValidator
+import com.sh1p1lov.joydevmusicplayer.domain.validator.models.ValidationResult
 
 class ValidateEmailInputFieldUseCase(private val inputFieldValidator: InputFieldValidator) {
 
-    fun execute(text: String) {
+    fun execute(text: String): ValidationResult {
 
-        inputFieldValidator.validate(text)
+        return inputFieldValidator.validate(text)
     }
 }

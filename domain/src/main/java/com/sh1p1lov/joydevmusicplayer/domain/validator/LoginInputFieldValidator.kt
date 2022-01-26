@@ -1,8 +1,15 @@
 package com.sh1p1lov.joydevmusicplayer.domain.validator
 
-class LoginInputFieldValidator(minTextLength: Int, maxTextLength: Int)
-    : InputFieldValidator(minTextLength, maxTextLength) {
+import com.sh1p1lov.joydevmusicplayer.domain.validator.models.ValidationResult
 
-    override fun validate(text: String) {
+class LoginInputFieldValidator : InputFieldValidator() {
+
+    companion object {
+        const val MIN_TEXT_LENGTH = 6
+        const val MAX_TEXT_LENGTH = 20
+    }
+
+    override fun validate(text: String): ValidationResult {
+        TODO("Not yet implemented")
     }
 }

@@ -1,11 +1,8 @@
 package com.sh1p1lov.joydevmusicplayer.domain.validator
 
-abstract class InputFieldValidator(minTextLength: Int, maxTextLength: Int) {
+import com.sh1p1lov.joydevmusicplayer.domain.validator.models.ValidationResult
 
-    init {
-        if (minTextLength < 0 || maxTextLength < 0
-            || maxTextLength < minTextLength) throw IllegalArgumentException()
-    }
+abstract class InputFieldValidator {
 
-    abstract fun validate(text: String)
+    abstract fun validate(text: String): ValidationResult
 }
