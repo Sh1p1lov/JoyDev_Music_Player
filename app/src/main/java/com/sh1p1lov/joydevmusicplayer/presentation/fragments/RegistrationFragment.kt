@@ -19,12 +19,38 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
 
         binding = FragmentRegistrationBinding.bind(view)
 
+        binding.registrationButton.isClickable = false
+        binding.registrationAgreeRulesCheckBox.setOnClickListener {
+            val isAgree = binding.registrationAgreeRulesCheckBox.isChecked
+            binding.registrationButton.isClickable = isAgree
+        }
+
         binding.registrationLoginInputField.doAfterTextChanged {
-            try {
-                vm.validateLogin(it.toString())
-            } catch (e: Exception) {
-                binding.registrationLoginInputLayout.error = e.message
-            }
+            vm.validateLogin(it.toString())
+        }
+        vm.loginErrorMessage.observe(viewLifecycleOwner) {
+            binding.registrationLoginInputLayout.error = it
+        }
+
+        binding.registrationEmailInputField.doAfterTextChanged {
+            vm.validateEmail(it.toString())
+        }
+        vm.emailErrorMessage.observe(viewLifecycleOwner) {
+            binding.registrationEmailInputLayout.error = it
+        }
+
+        binding.registrationPasswordInputField.doAfterTextChanged {
+            vm.validatePassword(it.toString())
+        }
+        vm.passwordErrorMessage.observe(viewLifecycleOwner) {
+            binding.registrationPasswordInputLayout.error = it
+        }
+
+        binding.registrationRepeatPasswordInputField.doAfterTextChanged {
+            vm.validateRepeatedPassword(it.toString())
+        }
+        vm.repeatedPasswordErrorMessage.observe(viewLifecycleOwner) {
+            binding.registrationRepeatPasswordInputLayout.error = it
         }
     }
 }

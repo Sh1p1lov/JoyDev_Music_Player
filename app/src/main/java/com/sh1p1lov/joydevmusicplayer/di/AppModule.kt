@@ -10,7 +10,6 @@ val appModule = module {
         RegistrationViewModel(
             registrationByEmailUseCase = get(),
             validateLoginInputFieldUseCase = get(),
-            validateEmailInputFieldUseCase = get(),
             validatePasswordInputFieldUseCase = get()
         )
     }
