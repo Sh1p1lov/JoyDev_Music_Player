@@ -21,8 +21,10 @@
         android:id="@+id/registration_loginInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registration_fragment_title">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -30,7 +32,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/loginInputField_hint"
-            android:textSize="28sp"/>
+            android:inputType="textVisiblePassword|textNoSuggestions"
+            android:textSize="28sp"
+            android:maxLength="16"
+            android:maxLines="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,8 +43,10 @@
         android:id="@+id/registration_emailInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registration_loginInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -47,8 +54,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/emailInputField_hint"
+            android:inputType="textEmailAddress"
             android:textSize="28sp"
-            android:inputType="textEmailAddress"/>
+            android:maxLength="256"
+            android:maxLines="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,8 +65,11 @@
         android:id="@+id/registration_passwordInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registration_emailInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -65,8 +77,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/passwordInputField_hint"
-            android:textSize="28sp"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword|textNoSuggestions"
+            android:maxLength="16"
+            android:maxLines="1"
+            android:textSize="28sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,8 +88,11 @@
         android:id="@+id/registration_repeatPasswordInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registration_passwordInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -83,8 +100,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/repeatPasswordInputField_hint"
-            android:textSize="28sp"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword|textNoSuggestions"
+            android:maxLength="16"
+            android:maxLines="1"
+            android:textSize="28sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

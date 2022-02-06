@@ -6,18 +6,18 @@
     app:startDestination="@id/registrationFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.sh1p1lov.joydevmusicplayer.fragments.LoginFragment"
+        android:name="com.sh1p1lov.joydevmusicplayer.presentation.fragments.LoginFragment"
         android:label="LoginFragment" />
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.sh1p1lov.joydevmusicplayer.fragments.RegistrationFragment"
+        android:name="com.sh1p1lov.joydevmusicplayer.presentation.fragments.RegistrationFragment"
         android:label="RegistrationFragment" />
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.sh1p1lov.joydevmusicplayer.fragments.SplashFragment"
+        android:name="com.sh1p1lov.joydevmusicplayer.presentation.fragments.SplashFragment"
         android:label="SplashFragment" />
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.sh1p1lov.joydevmusicplayer.fragments.MainFragment"
+        android:name="com.sh1p1lov.joydevmusicplayer.presentation.fragments.MainFragment"
         android:label="MainFragment" />
 </navigation>
