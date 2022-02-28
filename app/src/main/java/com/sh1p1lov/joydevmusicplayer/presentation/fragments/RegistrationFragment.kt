@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.sh1p1lov.joydevmusicplayer.R
 import com.sh1p1lov.joydevmusicplayer.databinding.FragmentRegistrationBinding
 import com.sh1p1lov.joydevmusicplayer.presentation.viewmodels.RegistrationViewModel
@@ -23,6 +24,10 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
         binding.registrationAgreeRulesCheckBox.setOnClickListener {
             val isAgree = binding.registrationAgreeRulesCheckBox.isChecked
             binding.registrationButton.isClickable = isAgree
+        }
+
+        binding.registrationLoginInputHyperlink.setOnClickListener {
+            findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
         }
 
         binding.registrationLoginInputField.doAfterTextChanged {
