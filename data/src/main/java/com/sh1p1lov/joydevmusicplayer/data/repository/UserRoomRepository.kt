@@ -1,5 +1,6 @@
 package com.sh1p1lov.joydevmusicplayer.data.repository
 
+import android.content.Context
 import com.sh1p1lov.joydevmusicplayer.data.mappers.mapToUserEntity
 import com.sh1p1lov.joydevmusicplayer.data.mappers.mapToUserInfo
 import com.sh1p1lov.joydevmusicplayer.data.mappers.mapToUserInfoList
@@ -8,7 +9,10 @@ import com.sh1p1lov.joydevmusicplayer.domain.models.RegistrationUserParams
 import com.sh1p1lov.joydevmusicplayer.domain.models.UserInfo
 import com.sh1p1lov.joydevmusicplayer.domain.repository.UserRepository
 
-class UserRoomRepository(private val database: AppDatabase) : UserRepository {
+class UserRoomRepository(context: Context) : UserRepository {
+
+    private val database: AppDatabase by lazy { AppDatabase.get(context) }
+
     override fun containsUserWithUsername(username: String): Boolean {
         return database.userDao().containsByUsername(username)
     }
