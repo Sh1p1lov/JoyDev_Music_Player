@@ -11,8 +11,13 @@ import com.sh1p1lov.joydevmusicplayer.data.room.entities.UserEntity
 abstract class AppDatabase : RoomDatabase() {
 
     companion object {
-        fun get(context: Context): AppDatabase =
-             Room.databaseBuilder(context, AppDatabase::class.java, "database").build()
+        private var INSTANCE: AppDatabase? = null
+
+        fun get(context: Context): AppDatabase {
+            if (INSTANCE == null)
+                INSTANCE = Room.databaseBuilder(context, AppDatabase::class.java, "database").build()
+            return INSTANCE as AppDatabase
+        }
     }
 
     abstract fun userDao(): UserDao
