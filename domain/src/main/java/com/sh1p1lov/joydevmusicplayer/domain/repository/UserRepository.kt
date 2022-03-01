@@ -7,8 +7,8 @@ interface UserRepository {
     fun containsUserWithUsername(username: String): Boolean
     fun containsUserWithEmail(email: String): Boolean
     fun getUsers(): List<UserInfo>
-    fun getUserWithUsername(username: String): UserInfo
-    fun getUserWithEmail(email: String): UserInfo
+    fun getUserWithUsername(username: String): UserInfo?
+    fun getUserWithEmail(email: String): UserInfo?
     fun saveUser(userParams: RegistrationUserParams)
     fun removeUser(username: String)
 }
