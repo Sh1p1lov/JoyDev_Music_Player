@@ -10,8 +10,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
         android:text="TextView"
-        android:textSize="22dp" />
+        android:textAppearance="?android:textAppearanceLarge" />
 
     <ImageButton
         android:id="@+id/main_exit_to_account_button"
@@ -19,4 +20,89 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:src="@drawable/ic_baseline_exit_to_app_24" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/main_url_input_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_exit_to_account_button"
+        android:maxLines="2"
+        android:minLines="2" />
+
+    <Button
+        android:id="@+id/main_play_from_url_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_url_input_field"
+        android:text="@string/main_play_from_url_button" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/main_play_from_url_button"
+        android:background="@color/custom_blue"
+        android:src="@drawable/ic_baseline_music_note_24" />
+
+    <TextView
+        android:id="@+id/main_start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/main_seek_bar"
+        android:text="00:00"
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:id="@+id/main_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/main_seek_bar"
+        android:text="00:00"
+        android:layout_marginRight="5dp" />
+
+
+    <SeekBar
+        android:id="@+id/main_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_media_buttons"
+        android:secondaryProgressTint="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/main_media_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp">
+
+        <ImageButton
+            android:id="@+id/main_media_rew_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:src="@drawable/ic_baseline_fast_rewind_32" />
+
+        <ImageButton
+            android:id="@+id/main_media_play_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:src="@drawable/ic_baseline_play_arrow_32" />
+
+        <ImageButton
+            android:id="@+id/main_media_stop_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:src="@drawable/ic_baseline_stop_32" />
+
+        <ImageButton
+            android:id="@+id/main_media_ff_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:src="@drawable/ic_baseline_fast_forward_32" />
+    </LinearLayout>
 </RelativeLayout>
