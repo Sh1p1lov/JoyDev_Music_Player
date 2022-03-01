@@ -1,5 +1,6 @@
 package com.sh1p1lov.joydevmusicplayer.di
 
+import com.sh1p1lov.joydevmusicplayer.domain.usecase.LoginByUsernameOrEmailUseCase
 import com.sh1p1lov.joydevmusicplayer.domain.usecase.RegistrationByEmailUseCase
 import com.sh1p1lov.joydevmusicplayer.domain.usecase.ValidateLoginInputFieldUseCase
 import com.sh1p1lov.joydevmusicplayer.domain.usecase.ValidatePasswordInputFieldUseCase
@@ -19,5 +20,9 @@ val domainModule = module {
 
     factory {
         RegistrationByEmailUseCase(get())
+    }
+
+    factory {
+        LoginByUsernameOrEmailUseCase(get())
     }
 }
