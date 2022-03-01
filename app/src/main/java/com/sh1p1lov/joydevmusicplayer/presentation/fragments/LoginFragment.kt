@@ -1,5 +1,7 @@
 package com.sh1p1lov.joydevmusicplayer.presentation.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -15,9 +17,14 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
 
     private lateinit var binding: FragmentLoginBinding
     private val vm by viewModel<LoginViewModel>()
+    private val sharedPrefs: SharedPreferences by lazy { requireActivity().getSharedPreferences(getString(R.string.shared_prefs_name), Context.MODE_PRIVATE) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (sharedPrefs.getBoolean(getString(R.string.login_status_key), false)) {
+            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+        }
 
         binding = FragmentLoginBinding.bind(view)
 
@@ -36,6 +43,11 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
             toast.show()
 
             if (it.resultCode == LoginResult.OK) {
+                sharedPrefs
+                    .edit()
+                    .putBoolean(getString(R.string.login_status_key), true)
+                    .putString(getString(R.string.current_username_key), binding.loginLoginInputField.text.toString())
+                    .apply()
                 findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
             }
         }
