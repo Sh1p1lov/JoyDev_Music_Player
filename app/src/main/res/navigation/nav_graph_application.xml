@@ -10,11 +10,11 @@
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_musicListFragment"
+            app:destination="@id/musicListFragment" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -40,7 +40,19 @@
         android:label="MainFragment"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_loginFragment"
+            android:id="@+id/action_mainFragment_to_musicListFragment"
+            app:destination="@id/musicListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicListFragment"
+        android:name="com.sh1p1lov.joydevmusicplayer.presentation.fragments.MusicListFragment"
+        android:label="MusicListFragment"
+        tools:layout="@layout/fragment_music_list" >
+        <action
+            android:id="@+id/action_musicListFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_musicListFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 </navigation>
