@@ -23,7 +23,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
 
         if (sharedPrefs.getBoolean(getString(R.string.login_status_key), false)) {
-            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_musicListFragment)
         }
 
         binding = FragmentLoginBinding.bind(view)
@@ -48,7 +48,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                     .putBoolean(getString(R.string.login_status_key), true)
                     .putString(getString(R.string.current_username_key), binding.loginLoginInputField.text.toString())
                     .apply()
-                findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+                findNavController().navigate(R.id.action_loginFragment_to_musicListFragment)
             }
         }
     }
