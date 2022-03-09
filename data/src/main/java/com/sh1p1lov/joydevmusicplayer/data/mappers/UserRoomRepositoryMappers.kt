@@ -18,6 +18,10 @@ fun mapToUserInfo(userEntity: UserEntity): UserInfo {
     )
 }
 
+fun mapToUserInfoOrNull(userEntity: UserEntity?): UserInfo? {
+    return if (userEntity == null) null else mapToUserInfo(userEntity)
+}
+
 fun mapToUserEntity(userParams: RegistrationUserParams): UserEntity {
     return UserEntity(
         username = userParams.username,

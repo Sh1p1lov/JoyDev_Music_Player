@@ -1,14 +1,19 @@
 package com.sh1p1lov.joydevmusicplayer.data.repository
 
+import android.content.Context
 import com.sh1p1lov.joydevmusicplayer.data.mappers.mapToUserEntity
-import com.sh1p1lov.joydevmusicplayer.data.mappers.mapToUserInfo
 import com.sh1p1lov.joydevmusicplayer.data.mappers.mapToUserInfoList
+import com.sh1p1lov.joydevmusicplayer.data.mappers.mapToUserInfoOrNull
 import com.sh1p1lov.joydevmusicplayer.data.room.database.AppDatabase
+import com.sh1p1lov.joydevmusicplayer.data.room.entities.UserEntity
 import com.sh1p1lov.joydevmusicplayer.domain.models.RegistrationUserParams
 import com.sh1p1lov.joydevmusicplayer.domain.models.UserInfo
 import com.sh1p1lov.joydevmusicplayer.domain.repository.UserRepository
 
-class UserRoomRepository(private val database: AppDatabase) : UserRepository {
+class UserRoomRepository(context: Context) : UserRepository {
+
+    private val database: AppDatabase by lazy { AppDatabase.get(context) }
+
     override fun containsUserWithUsername(username: String): Boolean {
         return database.userDao().containsByUsername(username)
     }
@@ -22,14 +27,14 @@ class UserRoomRepository(private val database: AppDatabase) : UserRepository {
         return mapToUserInfoList(userEntities = users)
     }
 
-    override fun getUserWithUsername(username: String): UserInfo {
+    override fun getUserWithUsername(username: String): UserInfo? {
         val user = database.userDao().getByUsername(username)
-        return mapToUserInfo(userEntity = user)
+        return mapToUserInfoOrNull(userEntity = user)
     }
 
-    override fun getUserWithEmail(email: String): UserInfo {
+    override fun getUserWithEmail(email: String): UserInfo? {
         val user = database.userDao().getByEmail(email)
-        return mapToUserInfo(userEntity = user)
+        return mapToUserInfoOrNull(userEntity = user)
     }
 
     override fun saveUser(userParams: RegistrationUserParams) {
@@ -37,7 +42,7 @@ class UserRoomRepository(private val database: AppDatabase) : UserRepository {
     }
 
     override fun removeUser(username: String) {
-        val user = database.userDao().getByUsername(username)
+        val user = database.userDao().getByUsername(username) as UserEntity
         database.userDao().delete(user)
     }
 }

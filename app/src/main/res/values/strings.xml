@@ -11,4 +11,6 @@
     <string name="registration_agreeRulesCheckBox_text">Согласен с правилами</string>
     <string name="registrationButton">Регистрация</string>
     <string name="registration_loginInput_hyperlink">Войти</string>
+    <string name="main_play_from_url_button">Воспроизвести</string>
+    <string name="music_list_update_button">Обновить список</string>
 </resources>

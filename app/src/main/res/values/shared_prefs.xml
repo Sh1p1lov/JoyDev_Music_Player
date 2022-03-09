@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shared_prefs_name">APP_PREFS</string>
+    <string name="login_status_key">LOGIN_STATUS</string>
+    <string name="current_username_key">CURRENT_USERNAME</string>
+</resources>
